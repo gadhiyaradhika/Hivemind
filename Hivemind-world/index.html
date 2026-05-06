@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hivemind World — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --hm-dark:#070725;
+    --hm-text-primary:#f8fafc;
+    --hm-text-secondary:#e2e8f0;
+    --hm-glow:#4d7eff;
+    --hm-cyan:#00cbff;
+    --hm-cyan-border:#3fd6ff;
+    --hm-surface:#e7e7e7;
+    --hm-rule:rgba(231,231,231,0.12);
+    /* Scandia is licensed; Arial Bold is the documented emergency fallback */
+    --font-display:"Scandia","Arial Black",Arial,sans-serif;
+    --font-body:"Helvetica","Helvetica Neue",Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--hm-dark);
+    color:var(--hm-text-secondary);
+    font:400 16px/1.5 var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:var(--hm-text-secondary)}
+
+  /* ---------- Atmospheric light streaks (CSS-only stand-ins for the PNG overlays) ---------- */
+  .light-streak{
+    position:absolute;
+    pointer-events:none;
+    filter:blur(60px);
+    opacity:.55;
+    z-index:0;
+  }
+  .light-left{
+    top:-120px;left:-200px;
+    width:560px;height:560px;
+    background:radial-gradient(closest-side, rgba(77,126,255,.85), rgba(77,126,255,0) 70%);
+  }
+  .light-right{
+    bottom:-180px;right:-220px;
+    width:620px;height:620px;
+    background:radial-gradient(closest-side, rgba(0,203,255,.55), rgba(0,203,255,0) 70%);
+  }
+  .neon-divider{
+    display:inline-block;
+    width:48px;height:6px;
+    margin:0 24px;
+    border-radius:6px;
+    background:var(--hm-glow);
+    box-shadow:0 0 24px 4px rgba(77,126,255,.9);
+    vertical-align:middle;
+  }
+
+  /* ---------- Layout ---------- */
+  .page{
+    position:relative;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 120px;
+  }
+  @media (max-width:768px){ .page{padding:0 16px} }
+
+  section{
+    position:relative;
+    padding:96px 0;
+    border-bottom:1px solid var(--hm-rule);
+    overflow:hidden;
+  }
+  section > .page{position:relative;z-index:1}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,7,37,.72);
+    backdrop-filter:blur(50px);
+    -webkit-backdrop-filter:blur(50px);
+    border-bottom:1px solid var(--hm-rule);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;
+  }
+  .nav img{height:40px;display:block}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap}
+  .nav-link{
+    font:400 22px/22px var(--font-body);
+    color:rgba(231,231,231,.9);
+    padding:12px 16px;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .nav-link.active{
+    font-weight:700;
+    color:var(--hm-surface);
+    border-bottom-color:var(--hm-surface);
+  }
+  .nav-link.contact{text-decoration:underline}
+  @media (max-width:768px){
+    .nav-link{font-size:16px;padding:8px 10px}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:140px 0 120px;
+    background-image:
+      linear-gradient(180deg, rgba(7,7,37,.2) 0%, rgba(7,7,37,0) 100%),
+      linear-gradient(90deg, rgba(7,7,37,.4) 0%, rgba(7,7,37,.4) 100%),
+      radial-gradient(ellipse at 20% 20%, rgba(77,126,255,.25), transparent 50%),
+      radial-gradient(ellipse at 85% 80%, rgba(0,203,255,.18), transparent 55%),
+      var(--hm-dark);
+  }
+  .eyebrow{
+    font:700 13px/1 var(--font-body);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--hm-glow);
+  }
+  .hero h1{
+    font:700 60px/1 var(--font-display);
+    color:#fff;
+    text-shadow:0 4px 4px rgba(0,0,0,.25);
+    margin:16px 0 8px;
+    max-width:880px;
+  }
+  .hero .lead{
+    font:700 26px/1.25 var(--font-body);
+    color:var(--hm-text-secondary);
+    margin:0 0 32px;
+    max-width:760px;
+  }
+  .hero-meta{
+    display:flex;gap:24px;flex-wrap:wrap;
+    font:400 14px/1 var(--font-body);
+    color:rgba(226,232,240,.7);
+    margin-top:40px;
+  }
+  .hero-meta span b{color:var(--hm-text-primary);font-weight:700;margin-right:6px}
+
+  /* ---------- Section heading ---------- */
+  .sec-num{
+    font:700 13px/1 var(--font-body);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--hm-glow);
+  }
+  h2{
+    font:700 60px/1 var(--font-display);
+    color:#fff;
+    text-shadow:0 4px 4px rgba(0,0,0,.25);
+    margin:8px 0 16px;
+  }
+  h3{
+    font:700 26px/1.2 var(--font-body);
+    color:var(--hm-text-secondary);
+    margin:32px 0 12px;
+  }
+  h4{
+    font:700 18px/1.2 var(--font-body);
+    color:var(--hm-text-primary);
+    margin:24px 0 8px;
+  }
+  p{margin:0 0 12px;max-width:780px}
+  .lede{font:400 18px/1.6 var(--font-body);color:var(--hm-text-secondary);max-width:780px}
+
+  /* ---------- Stats ---------- */
+  .stats{
+    display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+    gap:8px;margin-top:48px;
+  }
+  .stat{text-align:center;min-width:220px}
+  .stat .num{
+    display:block;
+    font:700 80px/1 var(--font-body);
+    color:var(--hm-text-primary);
+    text-shadow:4px 4px 200px white;
+  }
+  .stat .label{
+    display:block;margin-top:8px;
+    font:700 16px/1.2 var(--font-body);
+    color:var(--hm-text-secondary);
+    letter-spacing:.04em;
+  }
+
+  /* ---------- Color tokens ---------- */
+  .swatch-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:16px;margin-top:24px;
+  }
+  .swatch{
+    border:1px solid var(--hm-rule);
+    border-radius:16px;
+    overflow:hidden;
+    background:#0a0a30;
+  }
+  .swatch .chip{height:120px;display:block}
+  .swatch .meta{padding:14px 16px}
+  .swatch .token{
+    font:700 14px/1.2 var(--font-body);
+    color:var(--hm-text-primary);
+    margin-bottom:4px;
+  }
+  .swatch .hex{
+    font:400 13px/1.4 ui-monospace,Menlo,Consolas,monospace;
+    color:rgba(226,232,240,.7);
+  }
+  .swatch .use{
+    font:400 13px/1.4 var(--font-body);
+    color:rgba(226,232,240,.7);
+    margin-top:6px;
+  }
+
+  /* ---------- Type specimens ---------- */
+  .type-row{
+    display:grid;grid-template-columns:240px 1fr;gap:24px;
+    padding:20px 0;border-top:1px solid var(--hm-rule);
+    align-items:baseline;
+  }
+  .type-row:first-of-type{border-top:none}
+  .type-row .meta{
+    font:400 13px/1.5 var(--font-body);
+    color:rgba(226,232,240,.7);
+  }
+  .type-row .meta b{display:block;color:var(--hm-text-primary);font-weight:700;margin-bottom:4px}
+  .specimen-h-section{font:700 60px/1 var(--font-display);color:#fff;text-shadow:0 4px 4px rgba(0,0,0,.25)}
+  .specimen-h-stat{font:700 80px/1 var(--font-body);color:var(--hm-text-primary);text-shadow:4px 4px 200px white}
+  .specimen-h-hero{font:700 45px/52px var(--font-display);color:var(--hm-text-secondary)}
+  .specimen-h-sub{font:700 26px/1.2 var(--font-body);color:var(--hm-text-secondary)}
+  .specimen-body{font:400 18px/1.5 var(--font-body);color:var(--hm-text-secondary)}
+  .specimen-nav-active{font:700 22px/22px var(--font-body);color:var(--hm-surface);border-bottom:1px solid var(--hm-surface);display:inline-block;padding-bottom:2px}
+  .specimen-nav-default{font:400 22px/22px var(--font-body);color:rgba(231,231,231,.9)}
+  .specimen-meta{font:400 13px/1.4 var(--font-body);color:var(--hm-text-secondary)}
+  @media (max-width:768px){
+    .type-row{grid-template-columns:1fr;gap:8px}
+    .specimen-h-section{font-size:40px}
+    .specimen-h-stat{font-size:56px}
+    .specimen-h-hero{font-size:32px;line-height:1.2}
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-1a, .btn-1b, .btn-1c, .btn-2{
+    display:inline-block;
+    border:0;cursor:pointer;text-decoration:none;
+    font-family:var(--font-body);
+    font-weight:700;
+    color:var(--hm-dark);
+  }
+  .btn-1a{
+    background:#e7e7e7;
+    font-size:20px;
+    border-radius:96px;
+    padding:16px 24px;
+    box-shadow:0 4px 4px rgba(0,0,0,.25), inset -1.2px 0 7.2px 0 var(--hm-glow);
+  }
+  .btn-1b{
+    background:#e7e7e7;
+    font-size:24px;
+    border-radius:96px;
+    padding:19.2px 28.8px;
+    box-shadow:0 4px 4px rgba(0,0,0,.25), inset -1.2px 0 7.2px 0 var(--hm-glow);
+  }
+  .btn-1c{
+    background:var(--hm-cyan);
+    font-size:20px;
+    border:1.2px solid var(--hm-cyan-border);
+    border-radius:96px;
+    padding:16px 24px;
+    box-shadow:inset 0 4px 4px rgba(0,0,0,.25), inset -1.2px 0 7.2px 0 var(--hm-glow);
+  }
+  .btn-2{
+    background:#fff;
+    font-size:26px;
+    border:1px solid var(--hm-glow);
+    border-radius:80px;
+    padding:16px 24px;
+    box-shadow:-1px 0 7px 0 rgba(77,126,255,.88);
+  }
+
+  .btn-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:24px;margin-top:24px;
+  }
+  .btn-card{
+    border:1px solid var(--hm-rule);
+    border-radius:16px;
+    padding:32px 24px;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+    text-align:center;
+  }
+  .btn-card .btn-label{
+    display:block;margin-bottom:24px;
+    font:700 13px/1 var(--font-body);
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--hm-glow);
+  }
+  .btn-card .btn-desc{
+    display:block;margin-top:24px;
+    font:400 14px/1.5 var(--font-body);
+    color:rgba(226,232,240,.7);
+  }
+
+  /* ---------- Cards ---------- */
+  .event-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;margin-top:24px;
+  }
+  @media (max-width:1000px){ .event-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .event-grid{grid-template-columns:1fr} }
+  .event-card{
+    border-radius:16px;overflow:hidden;
+    position:relative;
+    aspect-ratio:3/4;
+    background:linear-gradient(180deg, rgba(7,7,37,0) 0%, rgba(7,7,37,.85) 70%),
+               linear-gradient(135deg, #1a1a4a 0%, #0a0a30 100%);
+    color:#fff;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:24px;
+  }
+  .event-card.london{background:linear-gradient(180deg, rgba(7,7,37,0) 0%, rgba(7,7,37,.85) 70%), linear-gradient(135deg,#3a1a5a,#0a0a30)}
+  .event-card.barcelona{background:linear-gradient(180deg, rgba(7,7,37,0) 0%, rgba(7,7,37,.85) 70%), linear-gradient(135deg,#5a1a3a,#0a0a30)}
+  .event-card.limassol{background:linear-gradient(180deg, rgba(7,7,37,0) 0%, rgba(7,7,37,.85) 70%), linear-gradient(135deg,#1a3a5a,#0a0a30)}
+  .event-card.cologne{background:linear-gradient(180deg, rgba(7,7,37,0) 0%, rgba(7,7,37,.85) 70%), linear-gradient(135deg,#1a5a3a,#0a0a30)}
+  .event-name{font:700 22px/1.1 var(--font-body);margin:0 0 8px}
+  .event-meta{font:400 13px/1.4 var(--font-body);color:rgba(255,255,255,.85);margin-bottom:16px}
+
+  /* ---------- Voice ---------- */
+  .voice-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;margin-top:24px;
+  }
+  @media (max-width:768px){ .voice-grid{grid-template-columns:1fr} }
+  .voice-card{
+    border:1px solid var(--hm-rule);
+    border-radius:16px;
+    padding:24px;
+  }
+  .voice-card.do{border-color:rgba(77,126,255,.5)}
+  .voice-card.dont{border-color:rgba(255,90,90,.4)}
+  .voice-card h4{margin-top:0}
+  .voice-list{margin:0;padding:0;list-style:none}
+  .voice-list li{
+    padding:10px 0;
+    border-top:1px solid var(--hm-rule);
+    font:400 15px/1.5 var(--font-body);
+  }
+  .voice-list li:first-child{border-top:none}
+  .voice-list .tag{
+    display:inline-block;
+    font:700 11px/1 var(--font-body);
+    letter-spacing:.12em;text-transform:uppercase;
+    padding:4px 8px;border-radius:4px;
+    margin-right:8px;
+    color:var(--hm-dark);
+  }
+  .tag.use{background:var(--hm-cyan)}
+  .tag.avoid{background:#ff8a8a}
+
+  /* ---------- Tables ---------- */
+  table.spec{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:16px;
+    font:400 14px/1.5 var(--font-body);
+  }
+  .spec th, .spec td{
+    text-align:left;
+    padding:12px 16px;
+    border-bottom:1px solid var(--hm-rule);
+    vertical-align:top;
+  }
+  .spec th{
+    font-weight:700;
+    color:var(--hm-text-primary);
+    background:rgba(255,255,255,.02);
+  }
+  .spec code{
+    font:400 13px/1.4 ui-monospace,Menlo,Consolas,monospace;
+    color:var(--hm-glow);
+  }
+
+  /* ---------- Checklist ---------- */
+  .checklist{
+    list-style:none;margin:24px 0 0;padding:0;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;
+  }
+  @media (max-width:768px){ .checklist{grid-template-columns:1fr} }
+  .checklist li{
+    padding:12px 16px;
+    border:1px solid var(--hm-rule);
+    border-radius:12px;
+    font:400 14px/1.4 var(--font-body);
+    color:var(--hm-text-secondary);
+    position:relative;padding-left:44px;
+  }
+  .checklist li::before{
+    content:"";
+    position:absolute;left:14px;top:50%;
+    width:18px;height:18px;margin-top:-9px;
+    border-radius:4px;
+    background:var(--hm-glow);
+    box-shadow:0 0 12px rgba(77,126,255,.7);
+  }
+
+  /* ---------- Footer CTA ---------- */
+  .cta-strip{
+    text-align:center;
+    padding:120px 0;
+    border-top:1px solid var(--hm-rule);
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(77,126,255,.18), transparent 60%),
+      var(--hm-dark);
+  }
+  .cta-strip h2{margin-bottom:24px}
+  .footer{
+    text-align:center;padding:40px 16px;
+    color:rgba(226,232,240,.5);
+    font:400 13px/1.5 var(--font-body);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="page nav-inner">
+    <img src="https://hivemind.world/wp-content/uploads/2025/11/Hivemind.png" alt="Hivemind World" />
+    <nav class="nav-links" aria-label="Brand sections">
+      <a class="nav-link active" href="#identity">Identity</a>
+      <a class="nav-link" href="#color">Color</a>
+      <a class="nav-link" href="#type">Type</a>
+      <a class="nav-link" href="#buttons">Buttons</a>
+      <a class="nav-link" href="#voice">Voice</a>
+      <a class="nav-link contact" href="mailto:info@hivemind.world">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="identity">
+  <div class="light-streak light-left" aria-hidden="true"></div>
+  <div class="light-streak light-right" aria-hidden="true"></div>
+  <div class="page">
+    <span class="eyebrow">Brand Guidelines · v1.0</span>
+    <h1>Powering the Future of B2B Gaming Events</h1>
+    <p class="lead">The official identity system for Hivemind World — a global series of curated B2B gaming industry mixers, summits, and conferences.</p>
+    <div>
+      <a class="btn-1a" href="#color" style="margin-right:12px">Explore the System</a>
+      <a class="btn-1c" href="mailto:info@hivemind.world">Become a Sponsor</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>Legal:</b> Hivemind Trading Ltd</span>
+      <span><b>Web:</b> hivemind.world</span>
+      <span><b>Contact:</b> info@hivemind.world</span>
+    </div>
+
+    <div class="stats" role="list" aria-label="Brand proof points">
+      <div class="stat" role="listitem">
+        <span class="num">12+</span>
+        <span class="label">EVENTS HELD GLOBALLY</span>
+      </div>
+      <span class="neon-divider" aria-hidden="true"></span>
+      <div class="stat" role="listitem">
+        <span class="num">1500+</span>
+        <span class="label">ATTENDEES</span>
+      </div>
+      <span class="neon-divider" aria-hidden="true"></span>
+      <div class="stat" role="listitem">
+        <span class="num">70%</span>
+        <span class="label">EXECUTIVES &amp; FOUNDERS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section id="color">
+  <div class="light-streak light-left" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">02 — Color System</span>
+    <h2>Core Palette</h2>
+    <p class="lede">All colors are extracted directly from the Figma design file (R0GyLoQrjHyGesJZFpJkYD). Backgrounds are dark; CTAs carry the electric blue glow.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="chip" style="background:#070725"></div>
+        <div class="meta">
+          <div class="token">--hm-dark</div>
+          <div class="hex">#070725</div>
+          <div class="use">Primary background, button text, overlays</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#f8fafc"></div>
+        <div class="meta">
+          <div class="token">--hm-text-primary</div>
+          <div class="hex">#f8fafc</div>
+          <div class="use">Large display text, stat numbers</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#e2e8f0"></div>
+        <div class="meta">
+          <div class="token">--hm-text-secondary</div>
+          <div class="hex">#e2e8f0</div>
+          <div class="use">Headings, body copy on dark</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#4d7eff;box-shadow:inset 0 0 60px rgba(255,255,255,.2)"></div>
+        <div class="meta">
+          <div class="token">--hm-glow</div>
+          <div class="hex">#4d7eff</div>
+          <div class="use">Electric blue — inner glow on all buttons, accent</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#00cbff"></div>
+        <div class="meta">
+          <div class="token">--hm-cyan</div>
+          <div class="hex">#00cbff</div>
+          <div class="use">Sponsor CTA fill (Become a Sponsor)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#3fd6ff"></div>
+        <div class="meta">
+          <div class="token">--hm-cyan-border</div>
+          <div class="hex">#3fd6ff</div>
+          <div class="use">Border on cyan CTA buttons</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#e7e7e7"></div>
+        <div class="meta">
+          <div class="token">--hm-surface</div>
+          <div class="hex">#e7e7e7</div>
+          <div class="use">Primary CTA fill (Get Tickets)</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Background overlay system</h3>
+    <p class="lede">The hero background uses a layered dark overlay so type stays legible on top of photography or radial light.</p>
+    <table class="spec">
+      <tr><th>Layer</th><th>Value</th></tr>
+      <tr><td>Vertical wash</td><td><code>linear-gradient(180deg, rgba(7,7,37,.2) 0%, rgba(7,7,37,0) 100%)</code></td></tr>
+      <tr><td>Horizontal tint</td><td><code>linear-gradient(90deg, rgba(7,7,37,.4) 0%, rgba(7,7,37,.4) 100%)</code></td></tr>
+      <tr><td>Stat number glow</td><td><code>text-shadow: 4px 4px 200px white;</code></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section id="type">
+  <div class="light-streak light-right" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">03 — Typography</span>
+    <h2>Type System</h2>
+    <p class="lede">Section headings are <b>Scandia Bold</b> (licensed by TypeTogether — Arial Bold is the documented fallback). Everything else is <b>Helvetica</b>.</p>
+
+    <div class="type-row">
+      <div class="meta"><b>Section heading</b>Scandia Bold · 60 / normal · #ffffff<br/>text-shadow 0 4 4 rgba(0,0,0,.25)</div>
+      <div class="specimen-h-section">Curated. Premium. Insider.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><b>Display stat</b>Helvetica Bold · 80 / normal · #f8fafc<br/>text-shadow 4 4 200 white</div>
+      <div class="specimen-h-stat">1500+</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><b>Hero heading</b>Scandia Bold · 45 / 52 · #e2e8f0</div>
+      <div class="specimen-h-hero">Connecting the B2B games industry, one room at a time.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><b>Sub-heading</b>Helvetica Bold · 26–28 · #e2e8f0</div>
+      <div class="specimen-h-sub">Each activity is designed to turn conversations into collaborations.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><b>Body</b>Helvetica Regular · 16–18 / 1.5 · #e2e8f0</div>
+      <div class="specimen-body">Hivemind World gathers founders, executives, and investors from publishers and platforms across the global games industry. Every mixer is curated end-to-end so the room is the product.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><b>Nav links</b>Helvetica Bold/Regular · 22 / 22</div>
+      <div>
+        <span class="specimen-nav-active">Events</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="specimen-nav-default">About</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="specimen-nav-default">Sponsors</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><b>Small / metadata</b>Helvetica Regular · 13–16 · #e2e8f0</div>
+      <div class="specimen-meta">12 NOV 2025 · LIMASSOL, CY · DOORS 18:00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUTTONS ============ -->
+<section id="buttons">
+  <div class="light-streak light-left" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">04 — Buttons</span>
+    <h2>Button System</h2>
+    <p class="lede">Two families, four variants. Family 1 (filled pill, <b>inner</b> blue glow) sits over dark backgrounds and event cards. Family 2 (white outlined pill, <b>outer</b> blue glow) is reserved for the standalone CTA strip at the bottom of dark sections.</p>
+
+    <div class="btn-grid">
+      <div class="btn-card">
+        <span class="btn-label">Type 1A — Primary CTA</span>
+        <button class="btn-1a">Get Tickets</button>
+        <span class="btn-desc">Hero, attendee action. Grey fill, inner blue glow. Helvetica Bold 20.</span>
+      </div>
+      <div class="btn-card">
+        <span class="btn-label">Type 1B — Card Primary</span>
+        <button class="btn-1b">Get Tickets</button>
+        <span class="btn-desc">Inside event cards. Same style as 1A, slightly larger (24px type, 19.2/28.8 padding).</span>
+      </div>
+      <div class="btn-card">
+        <span class="btn-label">Type 1C — Sponsor CTA</span>
+        <button class="btn-1c">Become a Sponsor</button>
+        <span class="btn-desc">Hero, sponsor action. Cyan fill, cyan border, inner blue glow.</span>
+      </div>
+      <div class="btn-card">
+        <span class="btn-label">Type 2 — White Outer Glow</span>
+        <button class="btn-2">Get Tickets</button>
+        <span class="btn-desc">Bottom strip CTA. White fill, outer blue glow, 80px radius.</span>
+      </div>
+    </div>
+
+    <h3>When to use which</h3>
+    <table class="spec">
+      <tr><th>Context</th><th>Button</th></tr>
+      <tr><td>Hero — attendee action</td><td>1A · standard primary</td></tr>
+      <tr><td>Event cards — register/ticket</td><td>1B · card-size primary</td></tr>
+      <tr><td>Hero — sponsor action</td><td>1C · cyan sponsor</td></tr>
+      <tr><td>Standalone CTA strip / dark section footer</td><td>2 · white outer glow</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CARDS ============ -->
+<section id="cards">
+  <div class="page">
+    <span class="sec-num">05 — Cards &amp; Layout</span>
+    <h2>Event Cards</h2>
+    <p class="lede">16px radius, photo fill over <code>#070725</code>, dark gradient overlay for legibility. Each card carries a city logo, date, location, and a Type 1B CTA. Grid is 4 / 2 / 1 across breakpoints.</p>
+
+    <div class="event-grid">
+      <div class="event-card london">
+        <div>
+          <div class="event-name">London Mixer</div>
+          <div class="event-meta">14 NOV 2025 · LONDON, UK</div>
+          <button class="btn-1b">Get Tickets</button>
+        </div>
+      </div>
+      <div class="event-card barcelona">
+        <div>
+          <div class="event-name">Barcelona Mixer</div>
+          <div class="event-meta">22 JAN 2026 · BARCELONA, ES</div>
+          <button class="btn-1b">Get Tickets</button>
+        </div>
+      </div>
+      <div class="event-card limassol">
+        <div>
+          <div class="event-name">Limassol Mixer</div>
+          <div class="event-meta">06 MAR 2026 · LIMASSOL, CY</div>
+          <button class="btn-1b">Get Tickets</button>
+        </div>
+      </div>
+      <div class="event-card cologne">
+        <div>
+          <div class="event-name">Cologne Mixer</div>
+          <div class="event-meta">21 AUG 2026 · COLOGNE, DE</div>
+          <button class="btn-1b">Get Tickets</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>Layout system</h3>
+    <table class="spec">
+      <tr><th>Token</th><th>Value</th></tr>
+      <tr><td>Max content width (desktop)</td><td>1200px</td></tr>
+      <tr><td>Section padding (desktop / mobile)</td><td>120px / 16px horizontal</td></tr>
+      <tr><td>Event card grid</td><td>4 cols (desktop) · 2 (tablet) · 1 (mobile)</td></tr>
+      <tr><td>Card radius / pill radius / Type 2 radius</td><td>16px / 96px / 80px</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ LIGHT EFFECTS ============ -->
+<section id="effects">
+  <div class="light-streak light-left" aria-hidden="true"></div>
+  <div class="light-streak light-right" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">06 — Visual Effects</span>
+    <h2>Signature Light Streaks</h2>
+    <p class="lede">Atmospheric stage-light bokeh — long soft streaks at section edges. PNG overlays in production; demonstrated here with radial gradients. <b>Rule:</b> at least one light streak per full-page dark section. Never use a flat dark background.</p>
+    <table class="spec">
+      <tr><th>Asset</th><th>Placement</th></tr>
+      <tr><td><code>light-left.png</code></td><td>Left edge of dark sections</td></tr>
+      <tr><td><code>light-right.png</code></td><td>Right edge of dark sections</td></tr>
+      <tr><td><code>neon-light.png</code></td><td>Small divider between stat numbers</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ LOGO ============ -->
+<section id="logo">
+  <div class="page">
+    <span class="sec-num">07 — Logo System</span>
+    <h2>Logo</h2>
+    <p class="lede">Horizontal lockup: blue/teal honeycomb-shield icon + “hivemind” wordmark. Always on <code>#070725</code>. Never on white. Never separated. Never recoloured.</p>
+
+    <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-end;margin-top:24px">
+      <div style="background:#070725;border:1px solid var(--hm-rule);border-radius:16px;padding:32px;min-width:280px;text-align:center">
+        <img src="https://hivemind.world/wp-content/uploads/2025/11/Hivemind.png" alt="Hivemind World horizontal" style="height:48px"/>
+        <div style="margin-top:16px;color:rgba(226,232,240,.7);font-size:13px">Horizontal · nav, headers, banners</div>
+      </div>
+      <div style="background:#070725;border:1px solid var(--hm-rule);border-radius:16px;padding:32px;min-width:280px;text-align:center">
+        <img src="https://hivemind.world/wp-content/uploads/2025/11/Hivemind_B2B-Gaming-Events.png" alt="Hivemind World vertical" style="height:96px"/>
+        <div style="margin-top:16px;color:rgba(226,232,240,.7);font-size:13px">Vertical · footer, social, square</div>
+      </div>
+    </div>
+
+    <h3>Event sub-brand logos (SVG)</h3>
+    <table class="spec">
+      <tr><th>Event</th><th>URL</th></tr>
+      <tr><td>London Mixer</td><td><code>hivemind.world/.../Hivemind-London-Mixer.svg</code></td></tr>
+      <tr><td>Barcelona Mixer</td><td><code>hivemind.world/.../Hivemind-Barcelona-Mixer.svg</code></td></tr>
+      <tr><td>Limassol Mixer</td><td><code>hivemind.world/.../Hivemind-Limassol-Mixer.svg</code></td></tr>
+      <tr><td>Brighton Mixer</td><td><code>hivemind.world/.../Hivemind-Brighton-Mixer.svg</code></td></tr>
+      <tr><td>Cologne Mixer</td><td><code>hivemind.world/.../Hivemind-Cologne-Mixer.svg</code></td></tr>
+    </table>
+
+    <h3>Usage rules</h3>
+    <ul class="checklist">
+      <li>Only on <code>#070725</code> dark — never on white or light</li>
+      <li>Never separate icon from wordmark</li>
+      <li>Never recolour — icon blue/teal, wordmark white</li>
+      <li>Clear space = height of the “h” in “hivemind” on all sides</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section id="voice">
+  <div class="light-streak light-right" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">08 — Voice &amp; Tone</span>
+    <h2>How Hivemind Sounds</h2>
+    <p class="lede">Confident, direct, industry-insider. Speaks to senior gaming professionals as peers. Authoritative but not arrogant. Specific over vague. Energy without hype. Community-first framing.</p>
+
+    <h3>Tone by context</h3>
+    <table class="spec">
+      <tr><th>Context</th><th>Tone</th><th>Example</th></tr>
+      <tr><td>Event headlines</td><td>Bold, declarative</td><td>“Powering the Future of B2B Gaming Events”</td></tr>
+      <tr><td>Event descriptions</td><td>Warm, inviting</td><td>“Each activity is designed to turn conversations into collaborations.”</td></tr>
+      <tr><td>CTA copy</td><td>Direct, action-first</td><td>“Get Tickets” / “Become a Sponsor”</td></tr>
+      <tr><td>Social / testimonial</td><td>Authentic, peer-to-peer</td><td>“Simply one of the best side-events of the year.”</td></tr>
+      <tr><td>Stats / proof points</td><td>Confident, factual</td><td>“70% Executives &amp; Founders / 1500+ Attendees / 12+ Events”</td></tr>
+    </table>
+
+    <div class="voice-grid">
+      <div class="voice-card do">
+        <h4>Use these patterns</h4>
+        <ul class="voice-list">
+          <li><span class="tag use">Use</span> “Curated” — implies craft, not gatekeeping</li>
+          <li><span class="tag use">Use</span> “Connecting the B2B games industry”</li>
+          <li><span class="tag use">Use</span> “Free and paid mixers” — transparency about access</li>
+          <li><span class="tag use">Use</span> “Conversations into collaborations”</li>
+        </ul>
+      </div>
+      <div class="voice-card dont">
+        <h4>Avoid these</h4>
+        <ul class="voice-list">
+          <li><span class="tag avoid">Avoid</span> “World-class” — generic</li>
+          <li><span class="tag avoid">Avoid</span> “Networking event” — too transactional, prefer <em>mixer</em></li>
+          <li><span class="tag avoid">Avoid</span> “Amazing opportunity” — filler</li>
+          <li><span class="tag avoid">Avoid</span> “State-of-the-art” — irrelevant</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section id="team">
+  <div class="page">
+    <span class="sec-num">09 — Team &amp; Proof</span>
+    <h2>Team</h2>
+    <table class="spec">
+      <tr><th>Name</th><th>Role</th><th>Contact</th></tr>
+      <tr><td>Harry Phokou</td><td>Founder &amp; CEO</td><td>harry@hivemind.world</td></tr>
+      <tr><td>Zhanna Tushkina</td><td>Event Manager</td><td>zhanna@hivemind.world</td></tr>
+      <tr><td>Theo Phokou</td><td>Partnership Manager</td><td>theo@hivemind.world</td></tr>
+    </table>
+
+    <h3>Notable past partners &amp; attendees</h3>
+    <p class="lede">Ubisoft · Amazon Web Services · Google · Metacore · Supercell · Airship · Lurkit · Metaplay · Dreamloop Games</p>
+  </div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="checklist">
+  <div class="light-streak light-left" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">10 — Asset Checklist</span>
+    <h2>Before you ship</h2>
+    <p class="lede">Every Hivemind World branded asset must clear this list.</p>
+    <ul class="checklist">
+      <li>Background is <code>#070725</code> or a photo over <code>#070725</code></li>
+      <li>All text is <code>#ffffff</code>, <code>#f8fafc</code>, or <code>#e2e8f0</code></li>
+      <li>Section headings use <b>Scandia Bold</b></li>
+      <li>Sub-headings, body, buttons use <b>Helvetica</b></li>
+      <li>At least one atmospheric light streak on full dark sections</li>
+      <li>Attendee CTAs use Type 1A or 1B</li>
+      <li>Sponsor CTAs use Type 1C (cyan)</li>
+      <li>Standalone strip CTAs use Type 2 (white outer glow)</li>
+      <li><code>#4d7eff</code> blue glow appears on every button</li>
+      <li>Event cards use 16px radius</li>
+      <li>Pill buttons use 96px (Type 1) or 80px (Type 2) radius</li>
+      <li>Logo is white version, never isolated for sub-brands</li>
+      <li>Copy uses Hivemind voice — direct, specific, insider</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ FOOTER CTA ============ -->
+<section class="cta-strip">
+  <div class="light-streak light-left" aria-hidden="true"></div>
+  <div class="light-streak light-right" aria-hidden="true"></div>
+  <div class="page">
+    <span class="sec-num">Explore our upcoming events</span>
+    <h2>Step into the room.</h2>
+    <a class="btn-2" href="https://hivemind.world">Get Tickets</a>
+  </div>
+</section>
+
+<footer class="footer">
+  © Hivemind Trading Ltd · hivemind.world · info@hivemind.world<br/>
+  Brand guidelines generated from <code>hivemind-world-brand-guidelines.skill</code>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+__MACOSX/
+._*
+
+# Node
+node_modules/
+
+# Playwright MCP run artifacts
+.playwright-mcp/
+
+# Editor / OS
+Thumbs.db
+*.swp
+.vscode/
+.idea/
