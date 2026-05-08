@@ -438,6 +438,80 @@
       </div>
     </section>
 
+    <!-- ============ S07b Schedule (v2) ============ -->
+    <section class="sched sched--v2" id="schedule-b" aria-labelledby="sched-h2-b">
+      <div class="container">
+        <div class="sched-head">
+          <span class="act-eyebrow">Programme</span>
+          <h2 class="sched-h2" id="sched-h2-b">How the night runs</h2>
+          <p class="act-lede sched-v2-lede">Four stages, one room, full evening. Click any time slot to see what's happening.</p>
+        </div>
+
+        <div class="sched-layout">
+          <nav class="sched-tabs" aria-label="Schedule tabs">
+            <a class="sched-tab" href="#sched-1-b" data-target="sched-1-b">
+              <span class="sched-tab-dot" aria-hidden="true"></span>
+              <span class="sched-tab-time">18:30</span>
+              <span class="sched-tab-title">Doors open + Welcome drinks</span>
+            </a>
+            <a class="sched-tab" href="#sched-2-b" data-target="sched-2-b">
+              <span class="sched-tab-dot" aria-hidden="true"></span>
+              <span class="sched-tab-time">19:15</span>
+              <span class="sched-tab-title">Expert roundtables</span>
+            </a>
+            <a class="sched-tab is-active" href="#sched-3-b" data-target="sched-3-b">
+              <span class="sched-tab-dot" aria-hidden="true"></span>
+              <span class="sched-tab-time">20:30</span>
+              <span class="sched-tab-title">Speed networking</span>
+            </a>
+            <a class="sched-tab" href="#sched-4-b" data-target="sched-4-b">
+              <span class="sched-tab-dot" aria-hidden="true"></span>
+              <span class="sched-tab-time">21:15</span>
+              <span class="sched-tab-title">After party</span>
+            </a>
+          </nav>
+
+          <div class="sched-stage-v2">
+            <article class="sched-card-v2" id="sched-1-b">
+              <div class="sched-card-photo" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"></div>
+              <div class="sched-card-info">
+                <span class="sched-badge"><span class="sched-badge-star" aria-hidden="true">&#9733;</span> 18:30 &middot; Stage 1 of 4</span>
+                <h3 class="sched-card-title">Doors open + Welcome drinks</h3>
+                <p class="sched-card-desc">Arrive, settle in, start meeting people. The bar is open, the room is warm, and the night is just beginning.</p>
+              </div>
+            </article>
+
+            <article class="sched-card-v2" id="sched-2-b">
+              <div class="sched-card-photo" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"></div>
+              <div class="sched-card-info">
+                <span class="sched-badge"><span class="sched-badge-star" aria-hidden="true">&#9733;</span> 19:15 &middot; Stage 2 of 4</span>
+                <h3 class="sched-card-title">Expert roundtables</h3>
+                <p class="sched-card-desc">Two to three concurrent tables, 8&ndash;10 people each, moderated by a domain expert. Pick the conversation that matters most to you.</p>
+              </div>
+            </article>
+
+            <article class="sched-card-v2 is-active" id="sched-3-b">
+              <div class="sched-card-photo" style="background-image: url('https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"></div>
+              <div class="sched-card-info">
+                <span class="sched-badge"><span class="sched-badge-star" aria-hidden="true">&#9733;</span> 20:30 &middot; Stage 3 of 4</span>
+                <h3 class="sched-card-title">Speed networking</h3>
+                <p class="sched-card-desc">Curated rapid-fire introductions across the room. Roughly 30 minutes, structured pairings, no awkward small talk. You walk away with five to seven new connections.</p>
+              </div>
+            </article>
+
+            <article class="sched-card-v2" id="sched-4-b">
+              <div class="sched-card-photo" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"></div>
+              <div class="sched-card-info">
+                <span class="sched-badge"><span class="sched-badge-star" aria-hidden="true">&#9733;</span> 21:15 &middot; Stage 4 of 4</span>
+                <h3 class="sched-card-title">After party</h3>
+                <p class="sched-card-desc">Open bar, no agenda. The room loosens up and the night takes over.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ S08 Venue ============ -->
     <section class="venue" id="venue" aria-labelledby="venue-h2">
       <div class="container">
@@ -962,10 +1036,11 @@
     // Schedule: scroll-driven tablet slide + sticky tabs + per-panel slider
     (function () {
       const sched = document.getElementById('schedule');
-      const stage = document.querySelector('.sched-tablet-stage');
-      const tabs = document.querySelectorAll('.sched-tab');
-      const panels = document.querySelectorAll('.sched-panel');
-      if (!sched || !stage || !tabs.length || !panels.length) return;
+      if (!sched) return;
+      const stage = sched.querySelector('.sched-tablet-stage');
+      const tabs = sched.querySelectorAll('.sched-tab');
+      const panels = sched.querySelectorAll('.sched-panel');
+      if (!stage || !tabs.length || !panels.length) return;
 
       const STEPS = panels.length;
       const STICKY_TOP = 96;
@@ -1047,6 +1122,24 @@
       window.addEventListener('scroll', update, { passive: true });
       window.addEventListener('resize', update);
       update();
+    })();
+
+    // Schedule v2 (S07b): click-driven tab switcher
+    (function () {
+      const root = document.getElementById('schedule-b');
+      if (!root) return;
+      const tabs = root.querySelectorAll('.sched-tab');
+      const cards = root.querySelectorAll('.sched-card-v2');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          tabs.forEach((t) => t.classList.remove('is-active'));
+          cards.forEach((c) => c.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          const target = root.querySelector('#' + tab.dataset.target);
+          if (target) target.classList.add('is-active');
+        });
+      });
     })();
 
     // Mid-scroll sticky CTA bar: show after hero, hide near footer

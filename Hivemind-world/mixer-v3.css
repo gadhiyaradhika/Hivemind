@@ -575,25 +575,38 @@ a {
   flex-direction: column;
   gap: 20px;
   min-height: 180px;
-  padding: 8px 24px 8px 42px;
-  border-left: 2px solid #66666699;
+  padding: 8px 24px 8px 60px;
 }
 
-/* Cyan glow halo — sits over the top portion of each divider */
+/* Vertical divider image (replaces CSS-drawn line + glow halo) */
 .trust-cell::before {
-  content: '';
-  position: absolute;
-  left: -2px;
-  top: 20px;
-  width: 2px;
-  height: 73px;
-  pointer-events: none;
-  background: #3ED8F6;
-  border-radius: 4px;
-  box-shadow:
-    0 0 0px 0px rgb(62 216 246 / 20%), 0 0 14px 3px rgb(181 237 247 / 45%), 0 0 28px 8px rgb(0 203 255 / 19%), 0 0 48px 14px rgba(77, 126, 255, 0.18)
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background-image: url(assets/stat-divider.webp);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    pointer-events: none;
+    height: 144px;
+    z-index: 9;
 }
-
+.trust-cell::after {
+    border-left: 2px solid;
+    --border-bottom-width: 0px;
+    --border-left-width: 2px;
+    border-color: #66666699;
+    --border-color: #66666699;
+    position: absolute;
+    left: 23px;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    content: ' ';
+}
 .trust-num {
   font-family: var(--font-body);
   font-weight: 700;
@@ -651,17 +664,13 @@ a {
 
   .trust-cell {
     flex: 1 1 100%;
-    border-left: 0;
-    border-top: 2px solid rgba(102, 102, 102, 0.23);
     padding: 20px 0 0 18px;
     min-height: 0;
+    border-top: 2px solid rgba(102, 102, 102, 0.23);
   }
 
   .trust-cell::before {
-    left: 0;
-    top: -10px;
-    width: 73px;
-    height: 21px;
+    display: none;
   }
 }
 
@@ -1905,6 +1914,284 @@ a {
 
   .sched-panel-title {
     font-size: 26px;
+  }
+}
+
+/* ---------- S07b Schedule v2 ---------- */
+.sched--v2 {
+  padding: 96px 0 112px;
+}
+
+.sched--v2 .sched-head {
+  margin-bottom: 56px;
+}
+
+.sched--v2 .sched-head .act-eyebrow {
+  color: var(--hm-cyan);
+}
+
+.sched--v2 .sched-head .act-eyebrow::before,
+.sched--v2 .sched-head .act-eyebrow::after {
+  display: none;
+}
+
+.sched--v2 .sched-h2 {
+  font-size: 56px;
+  letter-spacing: -0.02em;
+}
+
+.sched-v2-lede {
+  max-width: 520px;
+  margin: 6px 0 0;
+  text-align: center;
+  color: rgba(231, 231, 231, 0.7);
+}
+
+.sched--v2 .sched-layout {
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  min-height: 0;
+  align-items: start;
+}
+
+/* Vertical timeline tabs */
+.sched--v2 .sched-tabs {
+  position: sticky;
+  top: 96px;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+}
+
+.sched--v2 .sched-tabs::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 28px;
+  bottom: 28px;
+  width: 1px;
+  background: rgba(157, 181, 255, 0.18);
+  pointer-events: none;
+}
+
+.sched--v2 .sched-tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 14px;
+  align-items: start;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-left: 0;
+  border-radius: 14px;
+  color: rgba(231, 231, 231, 0.5);
+  background: transparent;
+  text-decoration: none;
+  transition: color .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.sched--v2 .sched-tab:hover {
+  color: rgba(231, 231, 231, 0.85);
+}
+
+.sched--v2 .sched-tab-dot {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin-top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(157, 181, 255, 0.45);
+  background: var(--hm-dark);
+  z-index: 1;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.sched--v2 .sched-tab-time {
+  grid-column: 2;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.sched--v2 .sched-tab-title {
+  grid-column: 2;
+  font: 400 14px/1.35 var(--font-body);
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.sched--v2 .sched-tab.is-active {
+  color: #fff;
+  background: rgba(0, 203, 255, 0.06);
+  border-color: rgba(0, 203, 255, 0.32);
+  border-left: 1px solid rgba(0, 203, 255, 0.32);
+  padding-left: 16px;
+}
+
+.sched--v2 .sched-tab.is-active .sched-tab-dot {
+  background: var(--hm-cyan);
+  border-color: var(--hm-cyan);
+  box-shadow: 0 0 0 4px rgba(0, 203, 255, 0.14);
+}
+
+/* Right side: clean rounded card (no tablet bezel) */
+.sched--v2 .sched-stage-v2 {
+  position: sticky;
+  top: 96px;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1px solid rgba(157, 181, 255, 0.18);
+  background: linear-gradient(180deg, #07071f 0%, #0a0a2a 100%);
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 40px 80px -30px rgba(0, 0, 0, 0.7),
+    0 0 80px -20px rgba(77, 126, 255, 0.22);
+}
+
+.sched--v2 .sched-card-v2 {
+  display: none;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+}
+
+.sched--v2 .sched-card-v2.is-active {
+  display: block;
+}
+
+.sched--v2 .sched-card-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.sched--v2 .sched-card-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 31, 0) 0%,
+    rgba(7, 7, 31, 0) 38%,
+    rgba(7, 7, 31, 0.55) 62%,
+    rgba(7, 7, 31, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+.sched--v2 .sched-card-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 32px 32px;
+  z-index: 1;
+}
+
+.sched-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font: 700 11px/1 var(--font-body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hm-cyan);
+  background: rgba(0, 203, 255, 0.14);
+  border: 1px solid rgba(63, 214, 255, 0.36);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sched-badge-star {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.sched--v2 .sched-card-info > .sched-badge {
+  margin-bottom: 14px;
+}
+
+.sched--v2 .sched-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin: 0 0 12px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+}
+
+.sched--v2 .sched-card-desc {
+  font: 400 15px/1.6 var(--font-body);
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  max-width: 620px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+  .sched--v2 {
+    padding: 56px 0 72px;
+  }
+
+  .sched--v2 .sched-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sched--v2 .sched-tabs {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 4px 0;
+    margin: 0 -16px;
+  }
+
+  .sched--v2 .sched-tabs::before {
+    display: none;
+  }
+
+  .sched--v2 .sched-tab {
+    flex: 0 0 auto;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    padding: 10px 14px;
+    white-space: nowrap;
+  }
+
+  .sched--v2 .sched-tab-dot {
+    grid-row: auto;
+    margin-top: 0;
+    align-self: center;
+  }
+
+  .sched--v2 .sched-tab-title {
+    display: none;
+  }
+
+  .sched--v2 .sched-stage-v2 {
+    position: static;
+    max-width: none;
+  }
+
+  .sched--v2 .sched-card-info {
+    padding: 22px 22px 28px;
+  }
+
+  .sched--v2 .sched-card-title {
+    font-size: 28px;
   }
 }
 
