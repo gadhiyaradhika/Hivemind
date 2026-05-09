@@ -3348,22 +3348,18 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgb(7, 7, 37);
+  font: 700 20px / 1 var(--font-body);
+  color: #070725;
+  background: #00cbff;
+  border: 1.2px solid #3fd6ff;
+  border-radius: 999px;
+  padding: 19px 0;
   width: 240px;
   height: 58px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 4px inset, rgb(77, 126, 255) -1.2px 0px 7.2px 0px inset;
-  font: 700 20px / 1 var(--font-body);
-  background: rgb(0, 203, 255);
-  border-width: 1.2px;
-  border-style: solid;
-  border-color: rgb(63, 214, 255);
-  border-image: initial;
-  border-radius: 999px;
-  padding: 19px 0px;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform 0.12s, filter 0.12s;
-  gap: 4px;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.15), inset -1.2px 0 7.2px 0 #4d7eff;
+  transition: transform .12s ease, filter .12s ease;
   text-shadow: none;
 }
 
