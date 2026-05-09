@@ -130,7 +130,7 @@ a {
   border-image: linear-gradient(0deg, #3FD6FF, #3FD6FF) 1;
   border-radius: 96px;
   display: inline-block;
-  padding: 14px 33px;
+  padding: 10px 33px;
   font-weight: 700;
   font-size: 20px;
 
@@ -3886,8 +3886,8 @@ a {
   gap: 10px;
   border-radius: 999px;
   border: 0;
-  font: 500 13px/1 var(--font-body);
-  color: rgba(231, 231, 231, 0.85);
+  font: 500 16px/1 var(--font-body);
+  color: rgb(255, 255, 255);
 }
 
 .newsletter-chips li::before {
@@ -4048,6 +4048,45 @@ a {
 
 .faq-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.faq-item--extra {
+  display: none;
+}
+
+.faq-list.is-expanded .faq-item--extra {
+  display: block;
+}
+
+.btn-load-more {
+  align-self: center;
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: var(--hm-surface);
+  color: var(--hm-dark);
+  font: 700 13px/1 var(--font-body);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .15s ease;
+  box-shadow:
+    0 4px 4px rgba(0, 0, 0, 0.18),
+    inset -1.2px 0 7.2px 0 var(--hm-glow);
+}
+
+.btn-load-more:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.25),
+    inset -1.2px 0 7.2px 0 var(--hm-glow);
+}
+
+.btn-load-more:active {
+  transform: translateY(1px) scale(0.99);
 }
 
 .faq-q {

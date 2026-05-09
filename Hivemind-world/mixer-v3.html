@@ -1009,7 +1009,7 @@
               </div>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item faq-item--extra">
               <summary class="faq-q">
                 <span>Can I bring a colleague?</span>
                 <span class="faq-toggle" aria-hidden="true">
@@ -1025,7 +1025,7 @@
               </div>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item faq-item--extra">
               <summary class="faq-q">
                 <span>Is there a hard sell or pitches?</span>
                 <span class="faq-toggle" aria-hidden="true">
@@ -1041,7 +1041,7 @@
               </div>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item faq-item--extra">
               <summary class="faq-q">
                 <span>What's the dress code?</span>
                 <span class="faq-toggle" aria-hidden="true">
@@ -1056,6 +1056,8 @@
                   need for a suit.</p>
               </div>
             </details>
+
+            <button class="btn-load-more" type="button" data-faq-more aria-expanded="false">Load more</button>
           </div>
         </div>
       </div>
@@ -1317,6 +1319,19 @@
             btn.setAttribute('aria-label', 'Copy promo code');
           }, 1500);
         });
+      });
+    })();
+
+    // FAQ: "Load more" toggle for hidden questions
+    (function () {
+      const btn = document.querySelector('[data-faq-more]');
+      if (!btn) return;
+      const list = btn.closest('.faq-list');
+      if (!list) return;
+      btn.addEventListener('click', () => {
+        const expanded = list.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', String(expanded));
+        btn.textContent = expanded ? 'Show less' : 'Load more';
       });
     })();
   </script>
