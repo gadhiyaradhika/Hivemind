@@ -3125,7 +3125,6 @@ a {
   flex: 0 0 auto;
   padding: 15px 32px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
   background: var(--hm-surface);
   color: var(--hm-dark);
   font: 700 17px / 1 var(--font-body);
