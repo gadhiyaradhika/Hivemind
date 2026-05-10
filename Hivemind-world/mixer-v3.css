@@ -9,7 +9,8 @@
   --hm-rule: rgba(231, 231, 231, 0.12);
   --font-display: "Scandia", "Arial Black", Arial, sans-serif;
   --font-body: "Helvetica", "Helvetica Neue", Arial, sans-serif;
-}
+  --font-roboto: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  }
 
 * {
   box-sizing: border-box
@@ -285,7 +286,7 @@ a {
   align-items: flex-start;
   justify-content: center;
   gap: 2px;
-  font-family: var(--font-display);
+  font-family: var(--font-roboto);
   font-weight: 700;
   font-size: clamp(28px, 3vw, 50px);
   line-height: 1;
@@ -309,7 +310,7 @@ a {
 }
 
 .poster-sponsor-lbl {
-  font: 700 20px/1 var(--font-body);
+  font: 700 20px/1 var(--font-roboto);
   letter-spacing: auto;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
@@ -367,7 +368,7 @@ a {
 }
 
 .poster-h1 {
-  font-family: var(--font-display);
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
   font-size: clamp(30px, 3.8vw, 45px);
   line-height: 1.04;
@@ -378,7 +379,7 @@ a {
 }
 
 .poster-sub {
-  font-family: var(--font-body);
+  font-family: var(--font-roboto);
   font-weight: 400;
   font-size: clamp(15px, 1.4vw, 20px);
   line-height: 1.45;
