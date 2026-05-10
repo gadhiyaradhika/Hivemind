@@ -625,7 +625,7 @@ a {
 .trust-lbl {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(32px, 1.6vw, 24px);
+  font-size: clamp(24px, 1.6vw, 24px);
   line-height: 1.15;
   color: #fff;
   margin: 0;
