@@ -67,8 +67,7 @@
                   src="https://hivemind.world/wp-content/uploads/2025/11/Hivemind-Barcelona-Mixer.svg"
                   alt="Hivemind Barcelona Mixer" />
                 <div class="poster-date">
-                  <span>JUN</span>
-                  <span>16</span>
+                  <span>JUN 16</span>
                   <span>2026</span>
                 </div>
               </div>
@@ -1070,15 +1069,27 @@
             </ul>
           </div>
 
-          <form class="newsletter-form" action="#" method="post" novalidate>
-            <div class="newsletter-row">
-              <label class="visually-hidden" for="newsletter-name">First Name</label>
-              <input class="newsletter-input" id="newsletter-name" name="name" type="name" placeholder="First Name"
-                autocomplete="name" required />
-              <button class="newsletter-submit" type="submit">Subscribe</button>
-            </div>
-            <p class="newsletter-note">Unsubscribe any time. No spam.</p>
-          </form>
+          <div class="newsletter-card">
+            <form class="newsletter-form" action="#" method="post" novalidate>
+              <div class="newsletter-field">
+                <label class="newsletter-label" for="newsletter-name">First name</label>
+                <input class="newsletter-input" id="newsletter-name" name="name" type="text"
+                  placeholder="Enter first name" autocomplete="given-name" required />
+              </div>
+              <div class="newsletter-field">
+                <label class="newsletter-label" for="newsletter-email">Email</label>
+                <input class="newsletter-input" id="newsletter-email" name="email" type="email"
+                  placeholder="you@studio.com" autocomplete="email" required />
+              </div>
+              <div class="subscribe_wrp">
+                <button class="newsletter-submit" type="submit">
+                  <span>Subscribe</span>
+                  <span class="newsletter-submit-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+              <p class="newsletter-note">No spam &middot; unsubscribe any time</p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
