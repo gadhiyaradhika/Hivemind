@@ -363,7 +363,7 @@ a {
     /* Bottom dark fade — solid --hm-dark at base so it bleeds into next section */
     linear-gradient(0deg, var(--hm-dark) 0%, rgba(7, 7, 37, 0.92) 8%, rgba(7, 7, 37, 0) 42%),
     /* Right-side purple glow (reference) */
-    radial-gradient(ellipse 65% 85% at 100% 70%, rgba(168, 85, 247, 0.55) 0%, rgba(168, 85, 247, 0.2) 38%, rgba(168, 85, 247, 0) 72%),
+    radial-gradient(ellipse 65% 85% at 100% 70%, rgba(0, 203, 255, 0.55) 0%, rgba(0, 203, 255, 0.2) 38%, rgba(0, 203, 255, 0) 72%),
     /* Left-side cyan glow (reference) */
     radial-gradient(ellipse 60% 80% at 0% 50%, rgba(0, 203, 255, 0.55) 0%, rgba(0, 203, 255, 0.2) 38%, rgba(0, 203, 255, 0) 72%),
     /* Subtle center darkening so the subject still reads through */
@@ -409,7 +409,7 @@ a {
 
 .poster-main {
   display: inline-flex;
-  align-items: center;
+  align-items: end;
   gap: clamp(16px, 2vw, 32px);
   justify-self: center;
 }
@@ -427,7 +427,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 2px;
+  gap: 10px;
   font-family: var(--font-roboto);
   font-weight: 700;
   font-size: clamp(28px, 3vw, 50px);
@@ -438,11 +438,11 @@ a {
 }
 
 .poster-date span {
-  font-size: 35px;
+  font-size: 38px;
 }
 
 .poster-sponsor {
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
@@ -457,6 +457,7 @@ a {
   text-transform: uppercase;
   color: rgb(255, 255, 255);
   margin-right: 6px;
+  padding-top: 10px;
 }
 
 .poster-sponsor-name {
@@ -492,7 +493,7 @@ a {
   }
 
   .poster-sponsor-img {
-    height: 24px
+    height: 44px
   }
 
   .poster-sponsor-sep {
@@ -685,7 +686,9 @@ a {
 
   .poster-main {
     flex-direction: column;
-    gap: 12px
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
   }
 
   .poster-date {
@@ -5052,7 +5055,11 @@ a {
 
   /* Hero poster: keep the logo from dominating tiny screens */
   .poster-logo {
-    width: clamp(220px, 70vw, 300px);
+    width: clamp(220px, 70vw, 237px);
+  }
+
+  .poster-date span {
+    font-size: 30px;
   }
 
   .poster-h1 {
