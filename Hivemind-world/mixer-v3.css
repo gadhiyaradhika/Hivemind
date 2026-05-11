@@ -276,6 +276,11 @@ a {
   cursor: pointer;
 }
 
+/* Mobile slide-in menu head — hidden on desktop */
+.nav-menu-head {
+  display: none;
+}
+
 @media (max-width:1280px) {
   .nav-inner {
     padding: 14px 24px;
@@ -298,10 +303,6 @@ a {
     margin-left: auto
   }
 
-  .nav-links {
-    display: none
-  }
-
   .nav-cta {
     padding: 12px 20px;
     font-size: 15px
@@ -310,6 +311,99 @@ a {
   .nav-divider,
   .nav-sub {
     display: none
+  }
+
+  /* ---- Slide-in mobile menu ---- */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 100vh;
+    z-index: 100;
+    background: rgb(7 7 31 / 69%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(37px) saturate(140%);
+    transform: translateX(100%);
+    transition: transform .32s cubic-bezier(.2, .8, .2, 1);
+    overflow-y: auto;
+  }
+
+  .nav.is-menu-open .nav-links {
+    transform: translateX(0);
+  }
+
+  .nav-menu-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-menu-head .nav-logo {
+    width: 130px;
+    height: auto;
+  }
+
+  .nav-menu-close {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s ease, transform .12s ease;
+  }
+
+  .nav-menu-close svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+
+  .nav-menu-close:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .nav-menu-close:active {
+    transform: scale(0.94);
+  }
+
+  /* Hide the hamburger while the menu is open (the panel has its own close) */
+  .nav.is-menu-open .nav-toggle {
+    visibility: hidden;
+  }
+
+  .nav-links .nav-link {
+    font: 400 18px/1 var(--font-body);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background .15s ease, color .15s ease;
+  }
+
+  .nav-links .nav-link:hover,
+  .nav-links .nav-link.is-active {
+    background: var(--hm-cyan);
+    color: var(--hm-dark);
+    font-weight: 700;
+    border-bottom-color: transparent;
   }
 }
 
@@ -484,6 +578,8 @@ a {
 
 @media (max-width:520px) {
   .poster-sponsor {
+    display: flex;
+    flex-direction: column;
     gap: 10px
   }
 
@@ -493,12 +589,25 @@ a {
   }
 
   .poster-sponsor-img {
-    height: 44px
+    width: 170px;
+    height: auto;
   }
 
   .poster-sponsor-sep {
     width: 3px;
     height: 3px
+  }
+
+  .poster-sponsor-lbl {
+    font-size: 18px;
+  }
+
+  .poster-sub {
+    font-size: 18px !important;
+  }
+
+  .cd-lbl {
+    font-size: 14px;
   }
 }
 
@@ -587,6 +696,13 @@ a {
 
   .cd-sep {
     display: none
+  }
+
+  .hero-cta--primary {
+    width: 240px;
+    height: 46px;
+    padding: 14px 0;
+    font-size: 18px;
   }
 }
 
@@ -700,13 +816,6 @@ a {
 
   .hero-ctas {
     gap: 10px
-  }
-
-  .hero-cta {
-    min-width: 0;
-    flex: 1 1 100%;
-    padding: 13px 22px;
-    font-size: 13px
   }
 }
 
@@ -894,6 +1003,13 @@ a {
     font-size: 16px;
     max-width: 100%;
   }
+
+
+  .trust,
+  .video-section {
+    padding-bottom: 60px;
+    margin-bottom: 0 !important;
+  }
 }
 
 /* ---------- S03 Video ---------- */
@@ -1059,10 +1175,6 @@ a {
 }
 
 @media (max-width:640px) {
-  .video-section {
-    padding: 64px 0
-  }
-
   .play-btn {
     width: 64px;
     height: 64px
@@ -4177,6 +4289,20 @@ a {
   .luma-apply {
     justify-content: center;
   }
+
+  .nav-links .nav-link {
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 0;
+  }
+
+  .trust,
+  .video-section,
+  .activities,
+  .room .room--split {
+    padding-bottom: 60px;
+    margin-bottom: 0 !important;
+  }
 }
 
 /* ============ S15 Newsletter ============ */
@@ -4858,12 +4984,25 @@ a {
     font-size: clamp(30px, 8vw, 40px);
   }
 
+  .hero-cta {
+    width: 240px;
+    height: 46px;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+
+  .hero-cta--primary {
+    width: 240px !important;
+    height: 46px;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+
   .register-h2 {
     font-size: clamp(26px, 7vw, 34px);
   }
 
   /* Trim oversized vertical rhythm on sections that only set margin-bottom */
-  .video-section,
   .activities,
   .room,
   .hosts,
@@ -4958,11 +5097,6 @@ a {
     font-size: 32px;
   }
 
-  /* Previous edition: the white "watch the talks" button mirrors .prev-action */
-  .prev-action-wrp {
-    width: 100%;
-  }
-
   /* Register: stack the inline email + submit so neither overflows */
   .register_input_wrp {
     flex-direction: column;
@@ -4983,8 +5117,6 @@ a {
 
   /* Generic safety net: no fixed-width child should be able to overflow */
   .nav-cta,
-  .hero-cta,
-  .hero-cta--primary,
   .btn-sponsor,
   .hosts-cta,
   .hotel-cta,
@@ -5089,14 +5221,23 @@ a {
   }
 
   /* Hero CTAs already go full-width at 720px; keep them tidy here too */
-  .hero-cta,
+  .hero-cta {
+    width: 240px;
+    height: 46px;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+
   .hero-cta--primary {
-    width: 100%;
-    max-width: 100%;
+    width: 240px !important;
+    height: 46px;
+    padding: 14px 0;
+    font-size: 18px;
   }
 
   /* Footer logo */
   .footer-logo {
     height: 28px;
   }
+
 }

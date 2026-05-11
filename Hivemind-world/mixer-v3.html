@@ -21,8 +21,17 @@
         <span class="nav-sub">Barcelona &middot; Mixer</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary">
-        <a class="nav-link" href="#activities">Activities</a>
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <div class="nav-menu-head">
+          <img class="nav-logo" src="https://hivemind.world/wp-content/uploads/2025/11/Hivemind.png" alt="Hivemind" />
+          <button class="nav-menu-close" type="button" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 1 0 5.7 7.11L10.59 12 5.7 16.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z" />
+            </svg>
+          </button>
+        </div>
+        <a class="nav-link is-active" href="#activities">Activities</a>
         <a class="nav-link" href="#the-room">The Room</a>
         <a class="nav-link" href="#schedule">Schedule</a>
         <a class="nav-link" href="#venue">Venue</a>
@@ -30,7 +39,7 @@
         <a class="nav-link" href="#faq">FAQ</a>
       </nav>
 
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round">
           <path d="M3 6h18M3 12h18M3 18h18" />
@@ -1363,6 +1372,36 @@
         const expanded = list.classList.toggle('is-expanded');
         btn.setAttribute('aria-expanded', String(expanded));
         btn.textContent = expanded ? 'Show less' : 'Load more';
+      });
+    })();
+
+    // Mobile nav: slide-in menu panel
+    (function () {
+      const nav = document.querySelector('.nav');
+      if (!nav) return;
+      const toggle = nav.querySelector('.nav-toggle');
+      const closeBtn = nav.querySelector('.nav-menu-close');
+      const menu = nav.querySelector('.nav-links');
+      if (!toggle || !menu) return;
+
+      const open = () => {
+        nav.classList.add('is-menu-open');
+        document.body.classList.add('menu-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      };
+      const close = () => {
+        nav.classList.remove('is-menu-open');
+        document.body.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
+
+      toggle.addEventListener('click', () => {
+        nav.classList.contains('is-menu-open') ? close() : open();
+      });
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      menu.querySelectorAll('.nav-link').forEach((link) => link.addEventListener('click', close));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('is-menu-open')) close();
       });
     })();
   </script>
