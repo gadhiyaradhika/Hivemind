@@ -5433,6 +5433,10 @@ a {
     font-size: 16px;
   }
 
+  .register-submit span {
+    font-size: 18px;
+  }
+
 }
 
 /* ---------- Small mobile (<=480px) ---------- */
