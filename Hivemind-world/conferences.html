@@ -28,12 +28,26 @@
                         alt="Hivemind" />
                     <button class="nav-menu-close" type="button" aria-label="Close menu"></button>
                 </div>
-                <a class="nav-link is-active" href="#activities">Activities</a>
-                <a class="nav-link" href="#the-room">The Room</a>
-                <a class="nav-link" href="#schedule">Schedule</a>
-                <a class="nav-link" href="#venue">Venue</a>
-                <a class="nav-link" href="#sponsors">Sponsors</a>
-                <a class="nav-link" href="#faq">FAQ</a>
+                <ul class="nav-link">
+                    <li class="nav-link-active">
+                        <a class="nav-link-wrp is-active" href="#activities">Activities</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-wrp" href="#the-room">The Room</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-wrp" href="#schedule">Schedule</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-wrp" href="#venue">Venue</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-wrp" href="#sponsors">Sponsors</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-wrp" href="#faq">FAQ</a>
+                    </li>
+                </ul>
             </nav>
 
             <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
@@ -251,7 +265,7 @@
 
                     <!-- 04 Exhibition Floor -->
                     <article class="act-tile">
-                        <div class="act-tile-bg act-photo--03" aria-hidden="true"></div>
+                        <div class="act-tile-bg act-photo--04" aria-hidden="true"></div>
                         <!-- <span class="act-num" aria-hidden="true">03</span> -->
                         <div class="act-tile-body">
                             <div class="act_heading_title">
@@ -266,7 +280,7 @@
 
                     <!-- 05 Gala + Awards -->
                     <article class="act-tile">
-                        <div class="act-tile-bg act-photo--03" aria-hidden="true"></div>
+                        <div class="act-tile-bg act-photo--05" aria-hidden="true"></div>
                         <!-- <span class="act-num" aria-hidden="true">03</span> -->
                         <div class="act-tile-body">
                             <div class="act_heading_title">
@@ -687,7 +701,7 @@
             <div class="container">
                 <div class="meet-grid">
                     <div class="meet-copy">
-                        <span class="meet-eyebrow">Attending?</span>
+                        <span class="act-eyebrow">Attending?</span>
                         <h2 class="meet-h2" id="meet-h2">Set up your meetings</h2>
                         <p class="meet-lede">Use the Hivemind meeting platform to book 1:1s with other attendees before
                             the event. Maximise your time in the room.</p>
@@ -697,9 +711,9 @@
                             <li>Your schedule syncs with the event app</li>
                         </ul>
                         <div class="meet-actions">
-                            <a class="meet-cta meet-cta--primary" href="#meetings">Access meeting platform <span
-                                    aria-hidden="true">&rarr;</span></a>
-                            <a class="meet-cta" href="#meetings-how">How it works</a>
+                            <a class="metting_platform" href="#register">Access meeting platform <span
+                                    aria-hidden="true">→</span></a>
+                            <a class="prev-action-wrp" href="#"><span>How It works</span></a>
                         </div>
                     </div>
 
@@ -738,8 +752,8 @@
 
                         <footer class="meet-card-foot">
                             <span class="meet-card-stat">3 of 8 slots filled</span>
-                            <a class="meet-card-cta" href="#meetings">Request more <span
-                                    aria-hidden="true">&rarr;</span></a>
+                            <a class="hotel-cta" href="#" target="_blank" rel="noopener">Request more<span
+                                    class="hotel-cta-arrow" aria-hidden="true">→</span></a>
                         </footer>
                     </aside>
                 </div>
@@ -788,9 +802,10 @@
         <section class="hotels" id="hotels" aria-labelledby="hotels-h2">
             <div class="container">
                 <div class="hotels-head">
-                    <span class="act-eyebrow">Stay</span>
+                    <span class="act-eyebrow">Accommodation</span>
                     <h2 class="hotels-h2" id="hotels-h2">Hivemind Partner Hotels</h2>
-                    <p class="hotels-sub">Use the promo code at booking for the Hivemind rate.</p>
+                    <p class="hotels-sub">Choose any hotel from those offered below, enter the promo code and book your
+                        accommodation with a discount.</p>
                 </div>
 
                 <div class="hotels-grid">
@@ -881,9 +896,9 @@
         <section class="reviews" id="reviews" aria-labelledby="reviews-h2">
             <div class="container">
                 <div class="reviews-head">
-                    <span class="act-eyebrow">Event Reviews</span>
-                    <h2 class="reviews-h2" id="reviews-h2">What people are saying.</h2>
-                    <p class="reviews-sub">Real feedback from past Hivemind attendees.</p>
+                    <span class="act-eyebrow">What attendees say</span>
+                    <h2 class="reviews-h2" id="reviews-h2">From the room</h2>
+                    <!-- <p class="reviews-sub">Real feedback from past Hivemind attendees.</p> -->
                 </div>
                 <div class="reviews-embed">
                     <script src="https://widget.senja.io/widget/cd2d2317-5855-44b6-9c8c-02eecdbf4ae5/platform.js"
@@ -901,7 +916,7 @@
                 <div class="sponsors-head">
                     <span class="act-eyebrow">Our Partners</span>
                     <h2 class="sponsors-h2" id="sponsors-h2">Sponsors</h2>
-                    <p class="sponsors-sub">A small lineup. The room curates everything else.</p>
+                    <!-- <p class="sponsors-sub">A small lineup. The room curates everything else.</p> -->
                 </div>
 
                 <div class="sponsors-title-row">
@@ -955,7 +970,7 @@
         <section class="media" id="media-partners" aria-labelledby="media-h2">
             <div class="container">
                 <div class="media-head">
-                    <span class="act-eyebrow">Featured By</span>
+                    <span class="act-eyebrow">Media</span>
                     <h2 class="media-h2" id="media-h2">Media Partners</h2>
                 </div>
                 <ul class="media-grid">
@@ -994,14 +1009,13 @@
                         <h2 class="prev-h2" id="prev-h2">Barcelona <span class="prev-h2-sep"
                                 aria-hidden="true">&middot;</span> Feb
                             2026.</h2>
-                        <p class="prev-body">Sold out. Leaders from King, Socialpoint, TapNation, Scopely, EA Games,
-                            Blizzard,
-                            Voodoo, and more. One evening that set the tone for the year.</p>
+                        <p class="prev-body">One evening. The conversations that set the tone for the
+                            year. Here's what happened.</p>
                     </div>
 
                     <ul class="prev-top-stats">
                         <li class="prev-stat">
-                            <span class="prev-stat-num">230</span>
+                            <span class="prev-stat-num">60</span>
                             <span class="prev-stat-lbl">Attendees</span>
                         </li>
                         <li class="prev-stat">
@@ -1106,10 +1120,9 @@
                     <div class="register-grid">
                         <div class="register-head">
                             <span class="register-pill">Secure your place</span>
-                            <h2 class="register-h2" id="register-h2">Register for Hivemind Barcelona Mixer</h2>
+                            <h2 class="register-h2" id="register-h2">Register for Hivemind Amsterdam Conference</h2>
                             <p class="register-body">Applications are reviewed. We curate the room to ensure every
-                                attendee adds value
-                                to every other attendee.</p>
+                                attendee adds value to every other attendee.</p>
                         </div>
 
                         <form class="register-form" action="https://lu.ma/bjozrrrk" method="get" target="_blank"
@@ -1279,6 +1292,8 @@
                     <div class="newsletter-left">
                         <span class="act-eyebrow">Stay in the loop</span>
                         <h2 class="newsletter-h2" id="newsletter-h2">Hivemind World newsletter.</h2>
+                        <p class="register-body">Early access to new events, speaker announcements, and industry insight
+                            from the Hivemind network. No noise — one email, when it matters.</p>
                         <ul class="newsletter-chips">
                             <li>Event announcements</li>
                             <li>Speaker reveals</li>
@@ -1370,10 +1385,10 @@
     <div class="cta-bar" id="cta-bar" aria-hidden="true">
         <div class="cta-bar-inner">
             <div class="cta-bar-info">
-                <span class="cta-bar-title">Hivemind Barcelona Mixer</span>
+                <span class="cta-bar-title">Hivemind Amsterdam Conference</span>
                 <span class="cta-bar-sub">
                     <span class="cta-bar-dot" aria-hidden="true"></span>
-                    June 16, 2026 &middot; Limited places remaining
+                    November 5–6, 2026 &middot; Limited places remaining
                 </span>
             </div>
             <a class="cta-bar-cta" href="#register">Get tickets <span class="cta-bar-cta-arrow"
