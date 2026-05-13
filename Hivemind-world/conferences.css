@@ -5278,6 +5278,10 @@ a {
         padding: 10px;
         font-size: 14px;
         border-bottom: 0;
+        background: rgba(7, 7, 31, 0.78);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: background .15s ease, color .15s ease;
+        display: block;
     }
 
     .act_heading_title {
