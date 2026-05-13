@@ -171,6 +171,29 @@ a {
 }
 
 /* ---------- Nav ---------- */
+
+
+.nav-link {
+    font: 400 20px/15px var(--font-body);
+    color: #E7E7E7E6;
+    text-decoration: none;
+    transition: color .15s ease;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-link li {
+    list-style: none;
+    padding: 0 26px 16px 26px;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-link li:hover {
+    border-bottom: 1px solid #fff;
+}
+
 .nav {
     position: absolute;
     top: 0;
@@ -229,7 +252,6 @@ a {
 .nav-link {
     font: 400 20px/15px var(--font-body);
     color: #E7E7E7E6;
-    padding: 13px 26px;
     text-decoration: none;
     transition: color .15s ease;
     border-bottom: 1px solid transparent;
