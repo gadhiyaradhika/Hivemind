@@ -229,10 +229,10 @@ a {
 .nav-link {
   font: 400 20px/15px var(--font-body);
   color: #E7E7E7E6;
-  padding: 13px 26px;
   text-decoration: none;
   transition: color .15s ease;
   border-bottom: 1px solid transparent;
+  margin: 0;
 }
 
 .nav-link:hover {
@@ -330,7 +330,7 @@ a {
     right: 0;
     max-height: 100vh;
     z-index: 100;
-    background: rgb(7 7 31 / 79%);
+    background: transparent;
     -webkit-backdrop-filter: blur(20px) saturate(140%);
     backdrop-filter: blur(37px) saturate(140%);
     transform: translateX(100%);
@@ -346,8 +346,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .nav-menu-head .nav-logo {
@@ -406,8 +407,8 @@ a {
 
   .nav-links .nav-link {
     font: 400 18px/1 var(--font-body);
-    color: rgba(255, 255, 255, 0.85);
-    padding: 18px 20px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(7, 7, 31, 0.78);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: background .15s ease, color .15s ease;
   }
@@ -5146,7 +5147,6 @@ a {
   }
 
   .nav-links .nav-link {
-    padding: 10px;
     font-size: 14px;
     border-bottom: 0;
   }
@@ -5436,6 +5436,34 @@ a {
   .register-submit span {
     font-size: 18px;
   }
+
+  .nav-link li {
+    padding: 10px;
+    margin-bottom: 4px;
+  }
+
+  .nav-link .nav-link-active {
+    background-color: #3FD6FF;
+  }
+
+  .nav-link .nav-link-active a {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .nav-link li a {
+    color: #fff;
+    font-family: "Helvetica", Sans-serif;
+    font-size: clamp(14px, calc(0.875rem + ((1vw - 3.75px) * 0.9697)), 20px);
+    font-weight: 400;
+  }
+
+  .nav-link {
+    padding: 0;
+    background: rgba(7, 7, 37, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
 
 }
 
