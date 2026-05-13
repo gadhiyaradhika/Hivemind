@@ -442,7 +442,7 @@ a {
 }
 
 .poster-sponsor {
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
@@ -1087,7 +1087,7 @@ a {
   gap: 20px;
   align-items: center;
   margin-bottom: 80px;
-  max-width: 650px;
+  max-width: 840px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
