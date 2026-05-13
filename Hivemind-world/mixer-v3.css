@@ -247,6 +247,10 @@ a {
   border-bottom: 1px solid #fff;
 }
 
+.nav-link-active:active {
+  border-bottom: 1px solid #fff;
+}
+
 .nav-link:hover {
   color: #fff;
 }
