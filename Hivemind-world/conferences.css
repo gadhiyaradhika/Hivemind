@@ -259,13 +259,11 @@ a {
 
 .nav-link:hover {
     color: #fff;
-    border-bottom: 1px solid #fff;
 }
 
 .nav-link.is-active {
     font-weight: 700;
     color: #fff;
-    border-bottom: 1px solid transparent;
 }
 
 .nav-cta {
