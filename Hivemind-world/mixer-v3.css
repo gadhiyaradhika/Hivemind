@@ -5057,6 +5057,11 @@ a {
     font-size: 12px;
   }
 
+  .trust,
+  .poster-inner {
+    padding-top: 60px;
+  }
+
   .container {
     padding: 0 16px;
   }

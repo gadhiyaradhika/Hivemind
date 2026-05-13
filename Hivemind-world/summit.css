@@ -624,6 +624,7 @@ a {
 
 .countdown-block .countdown {
     margin-top: 0;
+    gap: 24px;
 }
 
 .poster-card {
@@ -696,12 +697,9 @@ a {
     color: #fff;
 }
 
-.poster-sponsor-img {
-    display: block;
-    height: clamp(28px, 3vw, 100px);
-    width: auto;
-    max-width: 100%;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+.poster-sponsor p {
+    font-size: 40px;
+    margin: 0;
 }
 
 .poster-sponsor-sep {
@@ -2514,7 +2512,7 @@ a {
     position: relative;
     max-width: 100%;
     width: 990px;
-    height: 417px;
+    height: 483px;
     aspect-ratio: 2 / 1;
     overflow: hidden;
 }
@@ -6007,4 +6005,8 @@ a {
         height: 46px;
     }
 
+    .poster-inner,
+    .trust {
+        padding-top: 60px;
+    }
 }

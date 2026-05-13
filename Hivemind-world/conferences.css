@@ -5165,6 +5165,24 @@ a {
         font-size: 20px;
     }
 
+    .hero-content {
+        height: 0;
+    }
+
+    .hero-poster {
+        padding-top: 60px;
+    }
+
+    .hero {
+        padding: 0;
+        margin: 0;
+        height: 96svh;
+    }
+
+    .hero-image {
+        height: 720px;
+    }
+
     .sched--v2 .sched-card-desc {
         font-size: 12px;
     }
@@ -5455,7 +5473,6 @@ a {
         text-align: center;
     }
 
-    .hero,
     .trust,
     .video-section,
     .activities,
