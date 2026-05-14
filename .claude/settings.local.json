@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python _tmp_tiers.py)",
+      "Bash(rm _tmp_tiers.py)"
+    ]
+  }
+}
