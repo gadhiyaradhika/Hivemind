@@ -7071,7 +7071,8 @@ a {
     .sponsor-why-sub,
     .sponsor-tiers-sub,
     .upcoming-sub,
-    .final-cta-sub {
+    .final-cta-sub,
+    .media-pack-sub {
         font-size: 18px;
         margin-bottom: 0;
     }
